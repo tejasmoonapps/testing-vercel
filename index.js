@@ -15,6 +15,14 @@ app.use(express.json());
 // Routes
 app.use("/api/users", userRoutes);
 
+app.get("/", async (req, res, next) => {
+  try {
+    res.send("Hello Friend");
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.get("/welcome", async (req, res, next) => {
   try {
     res.send("Welcome buddy");
